@@ -4,10 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebApplication1.Models;
-using Microsoft.EntityFrameworkCore;
 using FileContextCore;
-using Microsoft.EntityFrameworkCore.Storage;
-using System.Drawing;
 
 namespace WebApplication1
 {
@@ -23,8 +20,8 @@ namespace WebApplication1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // services.AddDbContext<BooksContext>(opt => opt.UseInMemoryDatabase("BookList"));
-            services.AddDbContext<BooksContext>(options => options.UseFileContextDatabase("BookItem","StorageFolder"));
+            //services.AddDbContext<BooksContext>(opt => opt.UseInMemoryDatabase("BookList"));   
+            services.AddDbContext<BooksContext>(opt => opt.UseFileContextDatabase("BookStorage"));
             services.AddControllers();
         }
 
